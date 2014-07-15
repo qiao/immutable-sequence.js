@@ -153,6 +153,15 @@
   };
 
   /**
+   * Concatenate the sequence with another one.
+   * @param {ImmutableSequence} other
+   * @return {ImmutableSequence}
+   */
+  ImmutableSequence.prototype.concat = function (other) {
+    return new ImmutableSequence(this.tree_.concat(other.tree_));
+  };
+
+  /**
    * Split into two sequences at the given index.
    * @param {number} i
    * @return {Array.<ImmutableSequence>}
