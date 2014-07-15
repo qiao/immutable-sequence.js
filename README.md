@@ -1,19 +1,19 @@
-# immutable-array.js
+# immutable-sequence.js
 
-[![Build Status](https://travis-ci.org/qiao/immutable-array.js.svg?branch=master)](https://travis-ci.org/qiao/immutable-array.js)
+[![Build Status](https://travis-ci.org/qiao/immutable-sequence.js.svg?branch=master)](https://travis-ci.org/qiao/immutable-sequence.js)
 
-Implementation of Immutable Array in JavaScript, based on [Finger Tree](https://github.com/qiao/fingertree.js).
+Implementation of Immutable Sequence in JavaScript, based on [Finger Tree](https://github.com/qiao/fingertree.js).
 
 ## Installation (Node.js)
 
 ```
-npm install immutable-array
+npm install immutable-sequence
 ```
 
 Then, in your program:
 
 ```javascript
-var ImmutableArray = require('immutable-array');
+var ImmutableSequence = require('immutable-sequence');
 ```
 
 ## Quick Examples

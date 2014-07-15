@@ -1,3 +1,3 @@
 module.exports = process.env.TEST_COV ? 
-  require('./src-cov/immutable_array') :
-  require('./src/immutable_array');
+  require('./src-cov/immutable_sequence') :
+  require('./src/immutable_sequence');
