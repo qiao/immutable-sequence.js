@@ -57,7 +57,7 @@
 
   /**
    * Get the size of the sequence.
-   * @return {Number}
+   * @return {number}
    */
   ImmutableSequence.prototype.size = function () {
     return this.tree_.measure();
@@ -65,7 +65,7 @@
 
   /**
    * Get the element at the specified index.
-   * @param {Number} i Index of the element.
+   * @param {number} i Index of the element.
    * @return {*} 
    */
   ImmutableSequence.prototype.get = function (i) {
@@ -126,6 +126,18 @@
    */
   ImmutableSequence.prototype.removeLast = function () {
     return new ImmutableSequence(this.tree_.removeLast());
+  };
+
+  /**
+   * Split into two sequences at the given index.
+   * @param {number} i
+   * @return {Array.<ImmutableSequence>}
+   */
+  ImmutableSequence.prototype.splitAt = function (i) {
+    var split = this.tree_.split(function (m) {
+      return i < m;
+    });
+    return [new ImmutableSequence(split[0]), new ImmutableSequence(split[1])];
   };
 
   return ImmutableSequence;
