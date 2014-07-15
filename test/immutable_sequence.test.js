@@ -37,18 +37,6 @@ describe('Immutable Sequence', function () {
     s.peekLast().should.equal(3);
   });
 
-  it('should be able to add an element to the end', function () {
-    var s = ImmutableSequence.fromArray([]);
-    s = s.addLast(1);
-    s.size().should.eql(1);
-  });
-
-  it('should be able to add an element to the front', function () {
-    var s = ImmutableSequence.fromArray([]);
-    s = s.addFirst(1);
-    s.size().should.eql(1);
-  });
-
   it('should be able get the element at a certain position', function () {
     var s = ImmutableSequence.fromArray([1, 2, 3]);
     s.get(0).should.eql(1);
@@ -65,6 +53,24 @@ describe('Immutable Sequence', function () {
     (function () {
       s.get(3);
     }).should.throw();
+  });
+
+  it('should be able to set the element at a certain position', function () {
+    var s = ImmutableSequence.fromArray([1, 2, 3]);
+    s = s.set(1, 3);
+    s.get(1).should.eql(3);
+  });
+
+  it('should be able to add an element to the front', function () {
+    var s = ImmutableSequence.fromArray([]);
+    s = s.addFirst(1);
+    s.size().should.eql(1);
+  });
+
+  it('should be able to add an element to the end', function () {
+    var s = ImmutableSequence.fromArray([]);
+    s = s.addLast(1);
+    s.size().should.eql(1);
   });
 
   it('should be able to remove an element from the front', function () {
