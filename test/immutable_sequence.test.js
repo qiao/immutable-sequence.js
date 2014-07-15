@@ -13,6 +13,22 @@ describe('Immutable Sequence', function () {
     s.size().should.eql(3);
   });
 
+  it('should be able to get the first element', function () {
+    var s = ImmutableSequence.fromArray([]);
+    (s.peekFirst() === null).should.be.true;
+
+    s = ImmutableSequence.fromArray([1, 2, 3]);
+    s.peekFirst().should.equal(1);
+  });
+
+  it('should be able to get the last element', function () {
+    var s = ImmutableSequence.fromArray([]);
+    (s.peekLast() === null).should.be.true;
+
+    s = ImmutableSequence.fromArray([1, 2, 3]);
+    s.peekLast().should.equal(3);
+  });
+
   it('should be able to add an element to the end', function () {
     var s = ImmutableSequence.fromArray([]);
     s = s.addLast(1);
@@ -41,6 +57,22 @@ describe('Immutable Sequence', function () {
     (function () {
       s.get(3);
     }).should.throw();
+  });
+
+  it('should be able to remove an element from the front', function () {
+    var s = ImmutableSequence.fromArray([1, 2, 3]);
+    s = s.removeFirst();
+    s.size().should.equal(2);
+    s.peekFirst().should.equal(2);
+    s.peekLast().should.equal(3);
+  });
+
+  it('should be able to remove an element from the end', function () {
+    var s = ImmutableSequence.fromArray([1, 2, 3]);
+    s = s.removeLast();
+    s.size().should.equal(2);
+    s.peekFirst().should.equal(1);
+    s.peekLast().should.equal(2);
   });
 
   it('should be able to split at a certain position', function () {
