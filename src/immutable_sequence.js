@@ -87,6 +87,22 @@
   };
 
   /**
+   * Set the element at the specified index to be some value.
+   * @param {number} i Index of the element.
+   * @param {*} v Value to set.
+   * @return {ImmutableSequence}
+   */
+  ImmutableSequence.prototype.set = function (i, v) {
+    var split = this.tree_.split(function (m) {
+      return i < m;
+    });
+    if (split[1].isEmpty()) {
+      throw new Error('index out or range');
+    }
+    return new ImmutableSequence(split[0].addLast(v).concat(split[1].removeFirst()));
+  };
+
+  /**
    * Get the first element in the sequence.
    * @return {*}
    */
