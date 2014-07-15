@@ -78,7 +78,7 @@ describe('Immutable Sequence', function () {
   it('should be able to split at a certain position', function () {
     var s = ImmutableSequence.fromArray([1, 2, 3]);
     var split = s.splitAt(1);
-    split[0].size().should.eql(2);
-    split[1].size().should.eql(1);
+    split[0].size().should.eql(1);
+    split[1].size().should.eql(2);
   });
 });
