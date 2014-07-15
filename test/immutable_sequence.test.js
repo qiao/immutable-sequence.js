@@ -13,6 +13,14 @@ describe('Immutable Sequence', function () {
     s.size().should.eql(3);
   });
 
+  it('should be able to check whether is empty', function () {
+    var s = ImmutableSequence.fromArray([]);
+    s.isEmpty().should.be.true;
+
+    s = ImmutableSequence.fromArray([1, 2, 3]);
+    s.isEmpty().should.be.false;
+  });
+
   it('should be able to get the first element', function () {
     var s = ImmutableSequence.fromArray([]);
     (s.peekFirst() === null).should.be.true;
