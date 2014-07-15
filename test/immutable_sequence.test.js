@@ -26,7 +26,7 @@ describe('Immutable Sequence', function () {
     (s.peekFirst() === null).should.be.true;
 
     s = ImmutableSequence.fromArray([1, 2, 3]);
-    s.peekFirst().should.equal(1);
+    s.peekFirst().should.eql(1);
   });
 
   it('should be able to get the last element', function () {
@@ -34,7 +34,7 @@ describe('Immutable Sequence', function () {
     (s.peekLast() === null).should.be.true;
 
     s = ImmutableSequence.fromArray([1, 2, 3]);
-    s.peekLast().should.equal(3);
+    s.peekLast().should.eql(3);
   });
 
   it('should be able get the element at a certain position', function () {
@@ -76,17 +76,26 @@ describe('Immutable Sequence', function () {
   it('should be able to remove an element from the front', function () {
     var s = ImmutableSequence.fromArray([1, 2, 3]);
     s = s.removeFirst();
-    s.size().should.equal(2);
-    s.peekFirst().should.equal(2);
-    s.peekLast().should.equal(3);
+    s.size().should.eql(2);
+    s.peekFirst().should.eql(2);
+    s.peekLast().should.eql(3);
   });
 
   it('should be able to remove an element from the end', function () {
     var s = ImmutableSequence.fromArray([1, 2, 3]);
     s = s.removeLast();
-    s.size().should.equal(2);
-    s.peekFirst().should.equal(1);
-    s.peekLast().should.equal(2);
+    s.size().should.eql(2);
+    s.peekFirst().should.eql(1);
+    s.peekLast().should.eql(2);
+  });
+
+  it('should be able to concatenate two sequences', function () {
+    var a = ImmutableSequence.fromArray([1, 2, 3]);
+    var b = ImmutableSequence.fromArray([4, 5, 6]);
+    var c = a.concat(b);
+    c.size().should.eql(6);
+    c.peekFirst().should.eql(1);
+    c.peekLast().should.eql(6);
   });
 
   it('should be able to split at a certain position', function () {
