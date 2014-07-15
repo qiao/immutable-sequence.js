@@ -29,6 +29,15 @@ describe('Immutable Sequence', function () {
     var s = ImmutableSequence.fromArray([1, 2, 3]);
     s.get(0).should.eql(1);
     s.get(1).should.eql(2);
+  });
+
+  it('should throw an error when the index is out of range', function () {
+    var s = ImmutableSequence.fromArray([]);
+    (function () {
+      s.get(0);
+    }).should.throw();
+
+    s = ImmutableSequence.fromArray([1, 2, 3]);
     (function () {
       s.get(3);
     }).should.throw();
