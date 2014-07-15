@@ -56,6 +56,14 @@
   };
 
   /**
+   * Check whether the sequence is empty.
+   * @return {boolean}
+   */
+  ImmutableSequence.prototype.isEmpty = function () {
+    return this.tree_.isEmpty();
+  };
+
+  /**
    * Get the size of the sequence.
    * @return {number}
    */
