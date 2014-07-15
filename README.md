@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/qiao/immutable-sequence.js.svg?branch=master)](https://travis-ci.org/qiao/immutable-sequence.js)
 
-Implementation of Immutable Sequence in JavaScript, based on [Finger Tree](https://github.com/qiao/fingertree.js).
+High performance implementation of Immutable Sequence in JavaScript, based on [Finger Tree](https://github.com/qiao/fingertree.js).
 
 ## Installation (Node.js)
 
@@ -19,6 +19,54 @@ var ImmutableSequence = require('immutable-sequence');
 ## Quick Examples
 
 ```javascript
+// Empty sequence
+var seq = ImmutableSequence.fromArray([]);
+seq.isEmpty(); // true
+seq.size(); // 0
+seq.peekFirst(); // null
+seq.peekLast(); // null
+seq.get(0); // throws error
+
+// Nonempty sequence
+seq = ImmutableSequence.fromArray(['a', 'b', 'c']);
+seq.isEmpty(); // false
+seq.size(); // 3
+seq.peekFirst(); // 'a'
+seq.peekLast(); // 'b'
+seq.get(0); // 'a'
+seq.get(2); // 'c'
+
+// Add and remove
+var seq2 = seq.addFirst('1');
+seq2.size(); // 4
+seq2.peekFirst(); // '1'
+
+var seq3 = seq.removeFirst();
+seq3.size(); // 2
+seq3.peekFirst(); // 'b'
+
+var seq4 = seq.addLast('d');
+seq4.peekLast(); // 'd'
+
+var seq5 = seq.removeLast();
+seq5.peekLast(); // 'b'
+
+// Concatenate two sequences
+var a = ImmutableSequence.fromArray([1, 2, 3]);
+var b = ImmutableSequence.fromArray([4, 5, 6]);
+var c = a.concat(b);
+c.size(); // 6
+c.peekFirst(); // 1
+c.peekLast(); // 6
+
+// Split into two sequences at given index
+seq = ImmutableSequence.fromArray(['a', 'b', 'c']);
+var split = seq.splitAt(1);
+split[0].size(); // 1
+split[0].peekFirst(); // 'a'
+split[1].size(); // 2
+split[1].peekFirst(); // 'b'
+split[1].peekLast(); // 'c'
 ```
 
 
