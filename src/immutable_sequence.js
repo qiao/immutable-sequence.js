@@ -36,6 +36,7 @@
 
   /**
    * Construct an immutable sequence from an array.
+   * Complexity: O(n)
    * @param {Array} array
    * @return {ImmutableSequence}
    */
@@ -57,6 +58,7 @@
 
   /**
    * Check whether the sequence is empty.
+   * Complexity: O(1)
    * @return {boolean}
    */
   ImmutableSequence.prototype.isEmpty = function () {
@@ -65,6 +67,7 @@
 
   /**
    * Get the size of the sequence.
+   * Complexity: O(1)
    * @return {number}
    */
   ImmutableSequence.prototype.size = function () {
@@ -73,6 +76,7 @@
 
   /**
    * Get the element at the specified index.
+   * Complexity: O(log(min(i, n - 1)))
    * @param {number} i Index of the element.
    * @return {*} 
    */
@@ -88,6 +92,7 @@
 
   /**
    * Set the element at the specified index to be some value.
+   * Complexity: O(log(min(i, n - 1)))
    * @param {number} i Index of the element.
    * @param {*} v Value to set.
    * @return {ImmutableSequence}
@@ -104,6 +109,7 @@
 
   /**
    * Get the first element in the sequence.
+   * Complexity: O(1)
    * @return {*}
    */
   ImmutableSequence.prototype.peekFirst = function () {
@@ -112,6 +118,7 @@
 
   /**
    * Get the last element in the sequence.
+   * Complexity: O(1)
    * @return {*}
    */
   ImmutableSequence.prototype.peekLast = function () {
@@ -120,6 +127,7 @@
 
   /**
    * Add an element to the front of the sequence.
+   * Complexity: O(1)
    * @param {*} v
    * @return {ImmutableSequence}
    */
@@ -129,6 +137,7 @@
 
   /**
    * Add an element to the end of the sequence.
+   * Complexity: O(1)
    * @param {*} v
    * @return {ImmutableSequence}
    */
@@ -138,6 +147,7 @@
 
   /**
    * Remove an element from the front of the sequence.
+   * Complexity: O(1)
    * @return {ImmutableSequence}
    */
   ImmutableSequence.prototype.removeFirst = function () {
@@ -146,6 +156,7 @@
 
   /**
    * Remove an element from the end of the sequence.
+   * Complexity: O(1)
    * @return {ImmutableSequence}
    */
   ImmutableSequence.prototype.removeLast = function () {
@@ -154,6 +165,7 @@
 
   /**
    * Concatenate the sequence with another one.
+   * Complexity: O(log(min(n1, n2)))
    * @param {ImmutableSequence} other
    * @return {ImmutableSequence}
    */
@@ -163,6 +175,7 @@
 
   /**
    * Split into two sequences at the given index.
+   * Complexity: O(log(min(i, n - i)))
    * @param {number} i
    * @return {Array.<ImmutableSequence>}
    */
