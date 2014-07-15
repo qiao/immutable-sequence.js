@@ -79,6 +79,22 @@
   };
 
   /**
+   * Get the first element in the sequence.
+   * @return {*}
+   */
+  ImmutableSequence.prototype.peekFirst = function () {
+    return this.tree_.peekFirst();
+  };
+
+  /**
+   * Get the last element in the sequence.
+   * @return {*}
+   */
+  ImmutableSequence.prototype.peekLast = function () {
+    return this.tree_.peekLast();
+  };
+
+  /**
    * Add an element to the front of the sequence.
    * @param {*} v
    * @return {ImmutableSequence}
@@ -94,6 +110,22 @@
    */
   ImmutableSequence.prototype.addLast = function (v) {
     return new ImmutableSequence(this.tree_.addLast(v));
+  };
+
+  /**
+   * Remove an element from the front of the sequence.
+   * @return {ImmutableSequence}
+   */
+  ImmutableSequence.prototype.removeFirst = function () {
+    return new ImmutableSequence(this.tree_.removeFirst());
+  };
+
+  /**
+   * Remove an element from the end of the sequence.
+   * @return {ImmutableSequence}
+   */
+  ImmutableSequence.prototype.removeLast = function () {
+    return new ImmutableSequence(this.tree_.removeLast());
   };
 
   return ImmutableSequence;
