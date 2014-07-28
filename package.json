@@ -1,6 +1,6 @@
 {
   "name": "immutable-sequence",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Immutable sequence",
   "main": "index.js",
   "scripts": {
@@ -18,9 +18,14 @@
     "url": "git://github.com/qiao/immutable-sequence.js.git"
   },
   "keywords": [
+    "persistent",
+    "functional",
+    "immutable",
     "datastructure",
     "algorithm",
-    "persistent"
+    "list",
+    "sequence",
+    "array"
   ],
   "author": "Xueqiao Xu <xueqiaoxu@gmail.com>",
   "license": "MIT",
