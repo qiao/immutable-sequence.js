@@ -7,7 +7,7 @@
     "test": "make test"
   },
   "dependencies": {
-    "fingertree": "0.1.6"
+    "fingertree": "0.1.7"
   },
   "devDependencies": {
     "mocha": "1.18.2",
